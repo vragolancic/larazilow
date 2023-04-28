@@ -3,8 +3,8 @@
   <form @submit.prevent="update">
     <div class="grid grid-cols-6 gap-4">
       <div class="col-span-2">
-        <label class="label">Beds</label>
-        <input v-model.number="form.beds" type="text" class="input" />
+        <label class="block mb-1 text-gray-500 dark:text-gray-300 font-medium">Beds</label>
+        <input v-model.number="form.beds" type="text" class="block w-full p-2 rounded-md shadow-sm border border-gray-300 dark:border-gray-600 text-gray-500" />
         <div v-if="form.errors.beds" class="input-error">
           {{ form.errors.beds }}
         </div>
