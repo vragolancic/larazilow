@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "@heroicons/vue": "^2.0.17",
+        "@inertiajs/progress": "^0.2.7",
         "@inertiajs/vue3": "^1.0.6"
     }
 }
