@@ -30,13 +30,22 @@
             Listings
           </Link>
         </ul>
-        <Link :href="`/listing/create`" class="flex  justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Create Listing</Link>
+        <div v-if="user" class="flex items-center gap-4">
+          <div class="text-gray-500 font-bold">{{ user.name }}</div>
+          <Link :href="`/listing/create`" class="btn-primary">Create Listing</Link>
+          <div>
+            <Link class="btn-primary" :href="route('logout')" method="delete" as="button">Logout</Link>
+          </div>
+        </div>
+        <div v-else>
+          <Link :href="route('login')">Sign-in</Link>
+        </div>
       </nav>
     </div>
   </div>
 
 
-  <main class="container mx-auto p-4">
+  <main class="container mx-auto p-4 w-full">
     <div v-if="flashSuccess" class="mb-4 border rounded-md p-2 shadow-sm border-green-200 bg-green-50">
       {{ flashSuccess }}
     </div>
@@ -49,8 +58,8 @@
 import {Link, usePage} from '@inertiajs/vue3'
 import {computed} from 'vue'
 
-
 const flashSuccess = computed(() => page.props.flash.success)
+const user = computed(() => page.props.user)
 
 const page = usePage()
 </script>
