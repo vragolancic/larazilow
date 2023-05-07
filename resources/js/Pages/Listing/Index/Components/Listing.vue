@@ -12,25 +12,6 @@
         <ListingAddress :listing="listing" />
       </Link>
     </div>
-    <div class="flex m-2 justify-end">
-      <div>
-        <Link
-          class="mr-2 py-1.5 px-3 bg-blue-500 hover:bg-blue-700 rounded-md text-sm font-semibold shadow-sm text-white shadow-sm"
-          :href="route('listing.edit', {listing: listing.id})"
-          as="button"
-        >
-          Edit
-        </Link>
-      </div>
-      <div>
-        <Link
-          class="py-1.5 px-3 bg-amber-600 hover:bg-amber-700 rounded-md text-sm font-semibold shadow-sm text-white shadow-sm"
-          :href="route('listing.destroy', {listing: listing.id})" method="delete" as="button"
-        >
-          Delete
-        </Link>
-      </div>
-    </div>
   </Box>
 </template>
 
