@@ -32,7 +32,7 @@
         </ul>
         <div v-if="user" class="flex items-center gap-4">
           <Link :href="route('realtor.listing.index')" class="text-gray-500 font-bold">{{ user.name }}</Link>
-          <Link :href="route('realtor.listing.create')" class="btn-primary">Create Listing</Link>
+          <Link :href="route('realtor.listing.create')" class="btn-primary">+ Create Listing</Link>
           <div>
             <Link class="btn-primary" :href="route('logout')" method="delete" as="button">Logout</Link>
           </div>
