@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ListingOfferController;
 use App\Http\Controllers\RealtorListingController;
 use App\Http\Controllers\RealtorListingImageController;
 use App\Http\Controllers\UserAccountController;
@@ -27,6 +28,8 @@ Route::get('login', [AuthController::class, 'create'])->name('login');
 Route::post('login', [AuthController::class, 'store'])->name('login.store');
 Route::delete('logout', [AuthController::class, 'destroy'])->name('logout');
 
+Route::resource('listing.offer', ListingOfferController::class)->middleware('auth')->only(['store']);
+
 Route::resource('user-account', UserAccountController::class)->only(['create','store']);
 
 Route::prefix('realtor')->name('realtor.')->middleware('auth')->group(function () {
@@ -35,4 +38,5 @@ Route::prefix('realtor')->name('realtor.')->middleware('auth')->group(function (
     ->withTrashed();
 
     Route::resource('listing.image', RealtorListingImageController::class)->only(['create', 'store', 'destroy']);
+
 });
